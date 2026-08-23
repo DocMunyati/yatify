@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — logo, decorative, non-text surfaces */
   --color-yatify-brand: #12893e;
   --color-yatify-dark: #08221b;
   --color-yatify-soft: #f7faf8;
   --color-yatify-muted: #5b6a65;
 
-  /* Action palette — buttons/interactive elements with white text */
   --color-yatify-action: #0f7a36;
   --color-yatify-action-hover: #0c6329;
 
@@ -43,4 +41,13 @@ input {
   outline: 2px solid var(--color-yatify-action);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
