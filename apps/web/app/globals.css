@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   --color-yatify-brand: #12893e;
@@ -13,12 +13,13 @@
     "Helvetica Neue", Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-yatify-soft);
+  margin: 0;
+  background: #ffffff;
   color: var(--color-yatify-dark);
   font-family: var(--font-sans);
 }
@@ -33,14 +34,19 @@ a:not(.link-plain) {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 :focus-visible {
-  outline: 2px solid var(--color-yatify-action);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 3px solid var(--color-yatify-action);
+  outline-offset: 3px;
 }
 
 .no-scrollbar {
