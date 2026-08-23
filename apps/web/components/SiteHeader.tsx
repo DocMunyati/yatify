@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { categories } from "@/data/site";
-import SouthAfricaFlag from "@/components/SouthAfricaFlag";
+import CountryFlag from "@/components/CountryFlag";
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,10 +52,10 @@ export default function SiteHeader() {
         <div className="flex items-center gap-2 text-sm sm:gap-3">
           <Link
             href="/"
-            className="link-plain flex items-center gap-2 rounded-full border border-gray-200 px-3 py-2 font-medium sm:px-4"
+            className="link-plain flex items-center gap-2 rounded-full border border-gray-200 px-3 py-2 font-medium transition hover:border-gray-300 sm:px-4"
             aria-label="Change country"
           >
-            <SouthAfricaFlag />
+            <CountryFlag code="za" size="md" />
 
             <span className="sm:hidden">ZA</span>
             <span className="hidden sm:inline">South Africa</span>
@@ -97,7 +97,10 @@ export default function SiteHeader() {
           className="absolute left-0 right-0 top-full border-b border-gray-200 bg-white shadow-xl lg:hidden"
         >
           <div className="mx-auto max-w-7xl px-5 py-6">
-            <nav className="flex flex-col" aria-label="Mobile navigation">
+            <nav
+              className="flex flex-col"
+              aria-label="Mobile navigation"
+            >
               {categories.map((category) => (
                 <Link
                   key={category.name}
@@ -117,7 +120,7 @@ export default function SiteHeader() {
                 onClick={() => setMenuOpen(false)}
               >
                 <span className="flex items-center gap-3">
-                  <SouthAfricaFlag />
+                  <CountryFlag code="za" />
                   South Africa
                 </span>
 
