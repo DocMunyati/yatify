@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -21,20 +22,29 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { province } = await params;
 
-  const region = regions.find((item) => item.slug === province);
+  const region = regions.find(
+    (item) => item.slug === province
+  );
 
   if (!region) {
     return {
-      title: "Location not found",
+      title: "Place not found",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${region.name} | South Africa`,
-    description: `Discover property, cars, jobs, services and businesses in ${region.name} with YATIFY.`,
-  };
+  return createSeoMetadata({
+    title: `${region.name} | Places South Africa`,
+    description:
+      `Explore property, cars, jobs, services and businesses in ${region.name}, South Africa with YATIFY.`,
+    path: `/za/places/${region.slug}/`,
+    index: true,
+    follow: true,
+  });
 }
-
 export default async function ProvincePage({
   params,
 }: PageProps) {

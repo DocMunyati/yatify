@@ -1,11 +1,15 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Contact",
   description: "Contact YATIFY.",
-};
+  path: "/contact/",
+  index: true,
+  follow: true,
+});
 
 export default function ContactPage() {
   return (

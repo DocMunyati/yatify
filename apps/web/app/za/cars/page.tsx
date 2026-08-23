@@ -1,11 +1,14 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import VerticalLanding from "@/components/VerticalLanding";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Cars South Africa",
-  description:
-    "Discover new and used vehicles from dealers and vehicle providers across South Africa.",
-};
+  description: "Discover new and used vehicles from dealers and vehicle providers across South Africa.",
+  path: "/za/cars/",
+  index: true,
+  follow: true,
+});
 
 export default function CarsPage() {
   return (

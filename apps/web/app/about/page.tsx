@@ -1,12 +1,15 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "About",
-  description:
-    "Learn about YATIFY and its African search and discovery platform.",
-};
+  description: "Learn about YATIFY and its African search and discovery platform.",
+  path: "/about/",
+  index: true,
+  follow: true,
+});
 
 export default function AboutPage() {
   return (

@@ -1,13 +1,16 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "YATIFY for Business",
-  description:
-    "Learn about YATIFY supplier, business and inventory integration opportunities.",
-};
+  description: "Learn about YATIFY supplier, business and inventory integration opportunities.",
+  path: "/business/",
+  index: true,
+  follow: true,
+});
 
 export default function BusinessPage() {
   return (

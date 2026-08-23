@@ -1,14 +1,17 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { regions } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Places in South Africa",
-  description:
-    "Explore South Africa by province and discover property, cars, jobs, services and businesses with YATIFY.",
-};
+  description: "Explore South Africa by province and discover property, cars, jobs, services and businesses with YATIFY.",
+  path: "/za/places/",
+  index: true,
+  follow: true,
+});
 
 export default function PlacesPage() {
   return (

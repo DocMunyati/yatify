@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CountryFlag from "@/components/CountryFlag";
@@ -41,19 +42,15 @@ export async function generateMetadata({
     };
   }
 
-  return {
+  return createSeoMetadata({
     title: `YATIFY ${match.name} — Coming Soon`,
-
     description:
       `YATIFY is expanding to ${match.name}. See where YATIFY is available now and where we are going next.`,
-
-    robots: {
-      index: false,
-      follow: true,
-    },
-  };
+    path: `/${match.code}/`,
+    index: false,
+    follow: true,
+  });
 }
-
 export default async function PreparingCountryPage({
   params,
 }: PageProps) {

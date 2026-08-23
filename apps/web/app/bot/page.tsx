@@ -1,13 +1,16 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Crawler Information",
-  description:
-    "Information about YATIFY automated retrieval and website-owner controls.",
-};
+  description: "Information about YATIFY automated retrieval and website-owner controls.",
+  path: "/bot/",
+  index: true,
+  follow: true,
+});
 
 export default function BotPage() {
   return (

@@ -1,13 +1,16 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import CountryFlag from "@/components/CountryFlag";
 import { countries } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Discover Africa",
-  description:
-    "Explore YATIFY across Africa. Discover property, cars, jobs, services and businesses as YATIFY expands into more countries.",
-};
+  description: "Explore YATIFY across Africa. Discover property, cars, jobs, services and businesses as YATIFY expands into more countries.",
+  path: "/",
+  index: true,
+  follow: true,
+});
 
 export default function AfricaGateway() {
   const liveCountries = countries.filter(

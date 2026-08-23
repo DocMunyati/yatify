@@ -1,11 +1,15 @@
-﻿import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
+export const metadata = createSeoMetadata({
   title: "Log in",
   description: "YATIFY account access.",
-};
+  path: "/account/login/",
+  index: false,
+  follow: false,
+});
 
 export default function LoginPage() {
   return (
