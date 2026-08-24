@@ -1,4 +1,4 @@
-import { createSeoMetadata } from "@/lib/seo";
+﻿import { createSeoMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
@@ -13,12 +13,96 @@ export const metadata = createSeoMetadata({
   follow: true,
 });
 
+
+const placesBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://yatify.africa/za/places/#breadcrumb",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "YATIFY",
+      item: "https://yatify.africa/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "South Africa",
+      item: "https://yatify.africa/za/",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Places",
+      item: "https://yatify.africa/za/places/",
+    },
+  ],
+};
+
+const placesCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://yatify.africa/za/places/#collection",
+  url: "https://yatify.africa/za/places/",
+  name: "Places in South Africa",
+  description:
+    "Explore South Africa by province and discover property, cars, jobs, services and businesses with YATIFY.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/za/#country",
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: regions.map((region, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: region.name,
+      url: `https://yatify.africa/za/places/${region.slug}/`,
+    })),
+  },
+};
 export default function PlacesPage() {
   return (
     <>
       <SiteHeader />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(placesBreadcrumbSchema),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(placesCollectionSchema),
+        }}
+      />
+
       <main>
+        <div className="mx-auto max-w-7xl px-6 pt-8">
+          <nav
+            aria-label="Breadcrumb"
+            className="text-sm text-yatify-muted"
+          >
+            <Link
+              href="/za/"
+              className="hover:text-yatify-brand"
+            >
+              South Africa
+            </Link>
+
+            <span aria-hidden="true" className="mx-2">
+              /
+            </span>
+
+            <span aria-current="page">Places</span>
+          </nav>
+        </div>
         <section className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-6">
             <p className="font-semibold text-yatify-brand">
@@ -51,7 +135,7 @@ export default function PlacesPage() {
                   </p>
 
                   <p className="mt-6 font-semibold text-yatify-brand">
-                    Explore {region.name} →
+                      Explore {region.name} &rarr;
                   </p>
                 </Link>
               ))}
@@ -64,3 +148,5 @@ export default function PlacesPage() {
     </>
   );
 }
+
+
