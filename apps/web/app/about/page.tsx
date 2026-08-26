@@ -11,10 +11,33 @@ export const metadata = createSeoMetadata({
   follow: true,
 });
 
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://yatify.africa/about/#about",
+  url: "https://yatify.africa/about/",
+  name: "About YATIFY",
+  description:
+    "Learn about YATIFY and its African search and discovery platform.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/#organization",
+  },
+};
 export default function AboutPage() {
   return (
     <>
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutPageSchema),
+        }}
+      />
 
       <main className="mx-auto max-w-4xl px-6 py-24">
         <p className="font-semibold text-yatify-brand">
