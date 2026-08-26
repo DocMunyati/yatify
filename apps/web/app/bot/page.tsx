@@ -12,10 +12,33 @@ export const metadata = createSeoMetadata({
   follow: true,
 });
 
+
+const botPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yatify.africa/bot/#webpage",
+  url: "https://yatify.africa/bot/",
+  name: "YATIFY Crawler Information",
+  description:
+    "Information about YATIFY automated retrieval and website-owner controls.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/#organization",
+  },
+};
 export default function BotPage() {
   return (
     <>
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(botPageSchema),
+        }}
+      />
 
       <main className="mx-auto max-w-4xl px-6 py-24">
         <p className="font-semibold text-yatify-brand">
