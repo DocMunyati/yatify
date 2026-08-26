@@ -12,10 +12,33 @@ export const metadata = createSeoMetadata({
   follow: true,
 });
 
+
+const businessPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yatify.africa/business/#webpage",
+  url: "https://yatify.africa/business/",
+  name: "YATIFY for Business",
+  description:
+    "Learn about YATIFY supplier, business and inventory integration opportunities.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/#organization",
+  },
+};
 export default function BusinessPage() {
   return (
     <>
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(businessPageSchema),
+        }}
+      />
 
       <main className="mx-auto max-w-5xl px-6 py-24">
         <p className="font-semibold text-yatify-brand">
