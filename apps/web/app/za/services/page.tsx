@@ -1,4 +1,4 @@
-import { createSeoMetadata } from "@/lib/seo";
+﻿import { createSeoMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VerticalLanding from "@/components/VerticalLanding";
 
@@ -13,8 +13,11 @@ export const metadata = createSeoMetadata({
 export default function ServicesPage() {
   return (
     <VerticalLanding
-      title="Services"
+      
+        path="/za/services/"
+        title="Services"
       description="Find professionals and service providers for the work you need done."
     />
   );
 }
+

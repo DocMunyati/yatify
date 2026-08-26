@@ -1,4 +1,4 @@
-import { createSeoMetadata } from "@/lib/seo";
+﻿import { createSeoMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VerticalLanding from "@/components/VerticalLanding";
 
@@ -13,8 +13,11 @@ export const metadata = createSeoMetadata({
 export default function PropertyPage() {
   return (
     <VerticalLanding
-      title="Property"
+      
+        path="/za/property/"
+        title="Property"
       description="Discover homes, rentals and property opportunities across South Africa."
     />
   );
 }
+

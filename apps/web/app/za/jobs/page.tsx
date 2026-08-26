@@ -1,4 +1,4 @@
-import { createSeoMetadata } from "@/lib/seo";
+﻿import { createSeoMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VerticalLanding from "@/components/VerticalLanding";
 
@@ -13,8 +13,11 @@ export const metadata = createSeoMetadata({
 export default function JobsPage() {
   return (
     <VerticalLanding
-      title="Jobs"
+      
+        path="/za/jobs/"
+        title="Jobs"
       description="Discover job opportunities from employers, recruiters and approved sources."
     />
   );
 }
+
