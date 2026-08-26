@@ -7,14 +7,36 @@ export const metadata = createSeoMetadata({
   title: "Terms",
   description: "YATIFY terms of use.",
   path: "/legal/terms/",
-  index: true,
+  index: false,
   follow: true,
 });
 
+
+const termsPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yatify.africa/legal/terms/#webpage",
+  url: "https://yatify.africa/legal/terms/",
+  name: "YATIFY Terms",
+  description: "YATIFY terms of use.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/#organization",
+  },
+};
 export default function TermsPage() {
   return (
     <>
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(termsPageSchema),
+        }}
+      />
 
       <main className="mx-auto max-w-4xl px-6 py-24">
         <h1 className="text-5xl font-bold tracking-tight">
