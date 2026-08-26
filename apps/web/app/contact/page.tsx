@@ -11,10 +11,32 @@ export const metadata = createSeoMetadata({
   follow: true,
 });
 
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://yatify.africa/contact/#contact",
+  url: "https://yatify.africa/contact/",
+  name: "Contact YATIFY",
+  description: "Contact YATIFY.",
+  isPartOf: {
+    "@id": "https://yatify.africa/#website",
+  },
+  about: {
+    "@id": "https://yatify.africa/#organization",
+  },
+};
 export default function ContactPage() {
   return (
     <>
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema),
+        }}
+      />
 
       <main className="mx-auto max-w-4xl px-6 py-24">
         <p className="font-semibold text-yatify-brand">
